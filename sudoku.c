@@ -17,8 +17,10 @@ void FillParameters(parameters*, parameters*);
 int checks = 0;
 int main(int argc, char* argv[]){
   
-  if(argc > 1){
-    FILE* fptr = fopen(argv[1], "r");
+  if(argc == 2){
+
+    FILE* fptr= fopen(argv[1], "r");
+    if(fptr != NULL){
     char table[10][25];
     int i = 1;
     parameters* param = (parameters*) malloc(sizeof(parameters));
@@ -94,7 +96,15 @@ int main(int argc, char* argv[]){
     }
     free(param);
     //free(tmp);//Cant free memmory.   
-  }  
+    }
+    else{
+      printf("\nThe file provided doesn't exist\n");
+    }
+  }
+
+  else{
+    printf("\nThere was a problem with the number of command line arguments provided.\n");
+  }
   exit(0);
 }
 
