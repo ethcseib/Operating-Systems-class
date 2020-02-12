@@ -1,5 +1,0 @@
-#!/bin/bash
-
-clear
-gcc -pthread -o sudoku sudoku.c
-./sudoku "sudokutest2.txt"
