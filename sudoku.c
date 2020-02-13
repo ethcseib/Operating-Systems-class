@@ -1,5 +1,5 @@
 /**
- *Ethan Seiber and Cody Ginowski
+ *Ethan Seiber
  *Date: 2/12/2020 
  *File: sudoku.c
  *Description: A program that takes a filename containing a 9*9 sudoku table. It checks the table for correctness.

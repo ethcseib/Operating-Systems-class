@@ -1,4 +1,4 @@
-#Name: Ethan Seiber & Cody Ginowski
+#Name: Ethan Seiber
 #File: makefile
 #Description: A makefile for assignment 2
 

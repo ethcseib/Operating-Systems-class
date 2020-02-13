@@ -1,4 +1,4 @@
-Ethan Seiber and Cody Ginowski
+Ethan Seiber
 
 Design Overview:
        Created a typedef struct for passing parameters to threads.
