@@ -1,5 +1,7 @@
 Bugs/Limitations:
 	Has problems if their are not pairs of withdraw and deposit threads.
+	If there are no perfect pairs of withdraw and deposit threads then
+	the program can go to sleep and not wake up.
 
 Sample Output:
 
