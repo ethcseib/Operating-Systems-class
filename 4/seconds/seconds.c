@@ -9,13 +9,14 @@
 #define PROC_NAME "seconds"
 #define BUFFER_SIZE 128
 
-#include <asm/uaccess.h>
 #include <linux/init.h>
 #include <linux/module.h>
 #include <linux/kernel.h>
 #include <linux/proc_fs.h>
 #include <linux/jiffies.h>
 #include <asm/param.h>
+#include <asm/uaccess.h>
+#include <linux/uaccess.h>
 
 unsigned long start;
 
