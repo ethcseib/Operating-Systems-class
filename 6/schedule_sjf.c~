@@ -1,0 +1,72 @@
+#include<stdio.h>
+#include "task.h"
+#include "list.h"
+#include "schedulers.h"
+#include "cpu.h"
+#include <stdlib.h>
+
+struct node* FindSJ(struct node**);
+
+struct node** head;
+
+int check = 0;
+int taskID = -1;
+
+void add(char* name, int priority, int burst){
+
+	if(check == 0){
+		check ++;
+		head = (struct node**) malloc(sizeof(struct node));
+		*head = NULL;
+		
+	}
+	Task* task = (Task*) malloc(sizeof(Task));
+
+	task->name = name;
+	task->tid = (int)__sync_add_and_fetch(&taskID, 1);
+	task->priority = priority;
+	task->burst = burst;
+
+	insert(head, task);
+}
+
+void schedule(){
+
+	struct node** shortest = (struct node**) malloc(sizeof(struct node));
+	*shortest = FindSJ(head);
+
+	printf("Execution of the SJF algorithm:\n");
+	while(*shortest != NULL){
+		run((*shortest)->task, (*shortest)->task->burst);
+		free(shortest);
+
+		if(*head != NULL)
+			*shortest = FindSJ(head);
+		else
+			*shortest = NULL;
+	}
+	
+}
+
+struct node* FindSJ(struct node** head){
+
+	struct node** shortest = (struct node**) malloc(sizeof(struct node));
+	struct node** tmp = (struct node**) malloc(sizeof(struct node));
+
+	*shortest = *head;
+	*tmp = (*head)->next;
+
+while(*tmp != NULL){
+
+	if((*shortest)->task->burst > (*tmp)->task->burst){
+		
+		*shortest = *tmp;
+	}
+	*tmp = (*tmp)->next;
+}
+
+delete(head, (*shortest)->task);
+/*printf("\ntraverse\n");
+traverse(*head);*/
+return(*shortest);
+}
