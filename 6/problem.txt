@@ -1,0 +1,2 @@
+Had a problem with **head and the solution was to create a memory block in main
+and then do *head = NULL.

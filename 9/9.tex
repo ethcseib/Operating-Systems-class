@@ -7,7 +7,7 @@
 \usepackage{amsmath} %For math symbols (like the black square)
 \usepackage{graphicx,float,wrapfig} %Including graphics like PDFs and some image formats.
 \usepackage{color,soul}
-\usepackage{qtree}
+%\usepackage{qtree}
 \author{Ethan Seiber}
 \title{CSCI 485 assignment 8}
 
@@ -20,16 +20,29 @@
 	\begin{align*}%the number of blocks that exist in memory.
 	\frac{2*2^{40}}{2*2^{10}}= 2^{30}\text{ blocks}
 	\end{align*}
-	\begin{align*}%The number of entries in one block.
+	\begin{align*}%The number of entries in one block. Which represents the number of free blocks in that block.
 	\frac{2*2^{10}}{2^2} = 2^9\text{ entries in one block}
 	\end{align*}
 	
-	\begin{align*}%
-	\frac{2*2^{30}}{2^9} = 2^{22}\text{ blocks}
+	\begin{align*}%number of blocks needed 
+	\frac{2^{30}}{2^9} = 2^{21}\text{ blocks in total}
 	\end{align*}
 	
 	\begin{align*}
-	\frac{2^{22}}{2^{30}} = \frac{1}{2^{18}} = 0.390625%
+	\frac{2^{21}*2^{11}}{2^{41}}*100 = \frac{1}{2^{19}}*100 = 0.1953125\%
 	\end{align*}
+
+      \item[2]
+        \begin{align*}%Get the total number of blocks that can be made of the memory.
+          \frac{2^{41}}{2^2*2^{10}} = 2^{29}
+          \end{align*}
+
+        \begin{align*}%Get the total number of blocks needed for free blocks.
+          \frac{2^{29}}{2^3*2^{10}*2^2} = 2^{14}
+        \end{align*}
+
+        \begin{align*}%Get the percentage of memory used.
+          \frac{2^{14}*2^2*2^{10}}{2^{41}}*100 = ~0.0031\%
+          \end{align*}
 \end{enumerate}
 \end{document}
